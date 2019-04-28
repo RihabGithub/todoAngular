@@ -1,0 +1,161 @@
+
+<app-nav></app-nav>
+<div class="container">
+    <div class="py-5 text-center">
+      <img class="logo d-block mx-auto mb-4" src="https://media.istockphoto.com/photos/coffee-cup-and-notebook-with-to-do-list-planning-concept-picture-id514914078?k=6&m=514914078&s=612x612&w=0&h=BJRkXg8Y8Be_Fmg0cxrzBvddjTDmZYMY9f6o6FFHjoQ=" alt="" width="72" height="72">
+      <h2>Welcome to To Do List&#174;</h2>
+    </div>
+ <div class="col-md-12 order-md-1">
+    <h4 class="mb-3">Please sign in !</h4>
+       <form class="needs-validation" novalidate [formGroup]= "inscriptionform" (ngSubmit)="inscription()">
+        <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="firstName">First name</label>
+          <input 
+          type="text" 
+          class="form-control" 
+          id="firstName" 
+          placeholder="" value="" required
+          formControlName="firstName"
+         >
+         <div *ngIf="firstName.touched && firstName.invalid"   class="alert alert-danger">
+          <div *ngIf="firstName.errors.required">First Name is required</div> 
+          <div *ngIf="firstName.errors.minlength">
+            The first name must contain at least {{firstName.errors.minlength.requiredLength}} letter
+           </div>
+           <div *ngIf="firstName.errors.maxlength">
+            The first name must include at most {{firstName.errors.maxlength.requiredLength}} letter
+           </div>
+         </div>
+          <div class="invalid-feedback">
+            Valid first name is required.
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="lastName">Last name</label>
+          <input 
+          type="text"
+           class="form-control"
+            id="lastName"
+             placeholder="" value="" required
+             formControlName="lastName"
+             >
+             <div *ngIf="lastName.touched && lastName.invalid"   class="alert alert-danger">
+              <div *ngIf="lastName.errors.required">Last Name is required</div> 
+              <div *ngIf="lastName.errors.minlength">
+                The last name must contain at least {{lastName.errors.minlength.requiredLength}} letter
+               </div>
+               <div *ngIf="lastName.errors.maxlength">
+                The last name must include at most {{lastName.errors.maxlength.requiredLength}} letter
+               </div>
+             </div>
+          <div class="invalid-feedback">
+            Valid last name is required.
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+          <div class="col-md-6 mb-3">
+              <label for="userName">Phone</label>
+              <input 
+              type="text"
+               class="form-control" 
+               id="phone" 
+               placeholder="" value="" required
+               formControlName="phone"
+               >
+               <div *ngIf="phone.touched && phone.invalid"   class="alert alert-danger">
+                  <div *ngIf="phone.errors.required">Phone is required</div> 
+                  <div *ngIf="phone.errors?.pattern">
+                    The Phone must contain at {{phone.errors.minlength.requiredLength}} number
+                   </div>
+                   
+                 </div>
+              <div class="invalid-feedback">
+                Valid user name is required.
+              </div>
+            </div>
+          <div class="col-md-6 mb-3">
+            <label for="email">Email @</label>
+            <input
+             type="email" 
+             class="form-control" 
+             id="email"
+              placeholder="" value="" required
+              formControlName="email"
+              >
+              <div *ngIf="email.touched && email.invalid"   class="alert alert-danger">
+                  <div *ngIf="email.errors.required">Email is required</div>
+                  <div *ngIf="email.errors.email">Email must be a valid email address</div>
+              </div>
+            <div class="invalid-feedback">
+              Valid email is required.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 mb-3">
+              <label for="password">Password</label>
+              <input 
+                  type="password" 
+                  class="form-control" 
+                  id="password" 
+                  placeholder="" 
+                  value="" required
+                  formControlName="password"
+                  >
+                  <div *ngIf="password.touched && password.invalid"   class="alert alert-danger">
+                   <div *ngIf="password.errors.required">
+                    Password is required.
+                   </div>
+                   <div *ngIf="password.errors.minlength">
+                    The password must contain at least {{password.errors.minlength.requiredLength}} caracteres
+                   </div>
+                   <div *ngIf="password.errors.maxlength">
+                    The password must include at most {{password.errors.maxlength.requiredLength}} caracteres
+                   </div>
+                  </div>
+              <div class="invalid-feedback">
+                Valid password is required.
+              </div>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="repeatPs">Repeat password</label>
+              <input 
+              type="password" 
+              class="form-control"
+               id="repeatPs" 
+               placeholder="" value="" required
+               formControlName="confirmPassword"
+               >
+               <div *ngIf="confirmPassword.touched && confirmPassword.invalid"   class="alert alert-danger">
+                  <div *ngIf="confirmPassword.errors.required">
+                      Confirm Password is required.
+                  </div>
+                  <div *ngIf="confirmPassword.errors.minlength">
+                   The password must contain at least {{confirmPassword.errors.minlength.requiredLength}} caracteres
+                  </div>
+                  <div *ngIf="confirmPassword.errors.maxlength">
+                   The password must include at most {{confirmPassword.errors.maxlength.requiredLength}} caracteres
+                  </div>
+                 </div>
+              <div class="invalid-feedback">
+                Valid password is required.
+              </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6 mb-3">
+                  <button class="btn btn-lg btn-success btn-block" type="submit"  [disabled]="inscriptionform.invalid">Sign Up</button>
+                </div>
+                </div>
+       </form>
+  </div>
+
+ </div>
+
+<app-footer></app-footer>

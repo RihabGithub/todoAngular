@@ -1,0 +1,13 @@
+.container {
+    max-width: 960px;
+    padding-top: 80px;
+    padding-bottom: 88px;
+  }
+  .logo{
+    border-radius: 10px;
+    border: 3px solid #fff;
+}
+
+  
+  .lh-condensed { line-height: 1.25; }
+  

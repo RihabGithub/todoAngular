@@ -1,0 +1,9 @@
+.container {
+    max-width: 960px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+  }
+  
+  tbody tr a{
+    margin-right: 4px;
+}

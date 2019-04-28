@@ -1,0 +1,18 @@
+nav{
+    background-color: #e9ecef;
+}
+span{
+    color:rgb(46, 165, 165);
+}
+img{
+    width: 60px;
+}
+.topnav-right {
+    float: right;
+    margin: 2px;
+  }
+  .btn{
+      margin: 2px;
+      padding: 2px 3px;
+      
+  }

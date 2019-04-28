@@ -1,0 +1,99 @@
+<app-nav></app-nav>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <a type="submit" class="btn btn-lg " href="addlist" [class.btn-primary]="isPrimary" >Add Task</a>
+    </div>
+  </div>
+  <p class="mt-2 h1" [textContent]="todo" ng ></p>
+  <div *ngIf="todos.length>0;then todolist else nodo"></div>
+  <div class="progress">
+      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0"
+        aria-valuemax="100" style="width: 100%"></div>
+    </div>
+    <h1>Dones</h1>
+  <div *ngIf="dones.length>0;then doneslist else nodones"></div>
+  <ng-template #todolist>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Description</th>
+              <th scope="col">Date</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let tod of todos; index as i;">
+              <th scope="row">{{i}}</th>
+              <td>{{tod.name | uppercase}}</td>
+              <td>{{tod.dateadd | date:'shortDate'}}</td>
+              <td>
+                <a type="submit" class="btn btn-success btn-sm  " href="updatelist">Update Task</a>
+                <input type="button" value="Delete" class="btn btn-danger btn-sm mx-2" (click)="openModal(modeltodo,i)">
+                <input type="button" value="Done" class="btn btn-warning btn-sm " (click)="pushtab(tod)">
+              </td>
+            </tr>
+          
+          </tbody>
+        </table>
+  </ng-template>
+  <ng-template #nodo>
+      <div class="alert alert-danger">
+          No do yet
+        </div>
+  </ng-template>
+ 
+
+  <ng-template #doneslist>
+      <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Description</th>
+              <th scope="col">Date Add</th>
+              <th scope="col">Date Done</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let done of dones; index as i;">
+              <th scope="row">{{i}}</th>
+              <td>{{done.name | uppercase}}</td>
+              <td>{{done.dateadd | date:'shortDate'}}</td>
+              <td>{{done.datedone | date:'shortDate'}}</td>
+              <td>
+                <input type="button" value="Delete" class="btn btn-danger btn-sm" (click)="openModal(template,i)">
+              </td>
+          
+            </tr>
+          </tbody>
+        </table>
+      
+  </ng-template>
+  <ng-template #nodones>
+      <div class="alert alert-danger">
+          No dones yet
+        </div>
+        </ng-template>
+  <ng-template #template>
+    <div class="modal-body text-center">
+      <p>Do you want to delete?</p>
+      <button type="button" class="btn btn-default" (click)="delet()" >Yes</button>
+      <button type="button" class="btn btn-danger"  (click)="decline()" >No</button>
+    </div>
+  </ng-template>
+  <ng-template #modeltodo>
+      <div class="modal-body text-center">
+        <p>Do you want to delete?</p>
+        <button type="button" class="btn btn-default" (click)="delettodo()" >Yes</button>
+        <button type="button" class="btn btn-danger"  (click)="decline()" >No</button>
+      </div>
+    </ng-template>
+
+  
+</div>
+
+
+<app-footer></app-footer>

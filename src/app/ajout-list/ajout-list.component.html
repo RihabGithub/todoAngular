@@ -1,0 +1,34 @@
+
+<app-nav></app-nav>
+
+<div class="container">
+    <h2>Add a task</h2>
+    <form action="#" [formGroup]= "addform">
+    <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="task">Task Description: </label>
+          <input
+           type="text"
+            class="form-control
+            " id="task"
+             placeholder="Valid task is required."
+              value="" required
+              formControlName="taskadd">
+              <div *ngIf="taskadd.touched && taskadd.invalid"   class="alert alert-danger">
+                  <div *ngIf="taskadd.errors.required">Add task is required</div> 
+                  <div *ngIf="taskadd.errors.minlength">
+                    The add task must contain at least {{taskadd.errors.minlength.requiredLength}} letter
+                   </div>
+                 </div>          
+            <div class="invalid-feedback">
+            Valid task is required.
+          </div>
+        </div>
+    </div>
+ 
+      <button type="submit" class="btn btn-primary btn-lg">Add Task</button>
+    </form>
+  </div>
+
+
+  <app-footer></app-footer>

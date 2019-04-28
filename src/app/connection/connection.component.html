@@ -1,0 +1,44 @@
+<app-nav></app-nav>
+<body class="text-center">
+    <form class="form-signin" [formGroup]= "connectionform">
+  <img class="logo mb-4 " src="https://media.istockphoto.com/photos/coffee-cup-and-notebook-with-to-do-list-planning-concept-picture-id514914078?k=6&m=514914078&s=612x612&w=0&h=BJRkXg8Y8Be_Fmg0cxrzBvddjTDmZYMY9f6o6FFHjoQ=" alt="" width="72" height="72">
+  <h1 class="h3 mb-3 font-weight-normal">Log In <span class="fa fa-pencil" aria-hidden="true"></span></h1>
+  <label for="inputEmail" class="sr-only">Email address</label>
+  <input type="email"
+   id="inputEmail"
+    class="form-control"
+     placeholder="Email address"
+      required autofocus
+      formControlName="email" >
+      <div *ngIf="email.touched && email.invalid"   class="alert alert-danger">
+        <div *ngIf="email.errors.required">Email is required</div>
+        <div *ngIf="email.errors.email">Email must be a valid email address</div>
+      </div>
+  <label for="inputPassword" class="sr-only">Password</label>
+  <input type="password"
+   id="inputPassword"
+    class="form-control" 
+    placeholder="Password" 
+    required
+    formControlName="password">
+    <div *ngIf="password.touched && password.invalid"   class="alert alert-danger">
+      <div *ngIf="password.errors.required">
+       Password is required.
+      </div>
+      <div *ngIf="password.errors.minlength">
+       The password must contain at least {{password.errors.minlength.requiredLength}} caracteres
+      </div>
+      <div *ngIf="password.errors.maxlength">
+       The password must include at most {{password.errors.maxlength.requiredLength}} caracteres
+      </div>
+     </div>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <button class="btn btn-lg btn-primary btn-block" type="submit">Log in</button>
+  <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+</form>
+</body>
+<app-footer></app-footer>
